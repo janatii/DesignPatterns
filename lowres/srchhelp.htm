@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>
+CD-ROM Book Search Help
+</title>
+<body bgcolor="#ffffff">
+<hr>
+
+<h1>CD-ROM Book Search Help</h1>
+
+Copyright &#169 1996, 1997 Addison Wesley Longman.<p>
+
+<ul>
+<li> <a href="#Search Modes"> Preindexed and Exhaustive Searches </a>
+<li> <a href="#Search Terms"> Search Terms </a>
+    <ul>
+    <li> <a href="#Word Search"> Word Search </a>
+        <ul><li> <a href="#Boolean Expressions"> Boolean Expressions </ul>
+    <li> <a href="#Substrings">  Substrings </a>
+    <li> <a href="#Regular Expressions"> Regular Expressions </a>
+    </ul>
+<li> <a href="#Search Results"> Search Results </a>
+</ul>
+
+<a name="Search Modes"> <h1> Preindexed and Exhaustive Searches </h1> </a>
+
+You can search for a term by either using a pre-generated index of
+words in the book, or by dynamically searching all the HTML files.
+The first type of search is a <b>preindexed</b> search and the second
+is an <b>exhaustive</b> search.  Either search mode can be selected from
+the checkboxes on the search window.<p>
+
+A preindexed search will generally take at most a few seconds because it
+searches a much smaller number of words.  The length of an exhaustive
+will vary depending on the speed of your computer, your hard drive, and
+the Web browser you're using.  If a preindexed search does not find
+what you're looking for, you should try an exhaustive search.<p>
+
+<a name="Search Terms"> <h1> Search Terms </h1> </a>
+
+There are three different kinds of expressions you can search for,
+which can be selected from the checkboxes on the search window:
+
+<ul>
+	<li> Word
+	<li> Substring
+	<li> Regular Expression
+</ul>
+
+All searches are case insensitive.  A word search only looks for exact
+matches of a word.  A substring search tries to find a search term within
+part of a word.  A regular expression search tries to match a regular
+expression exactly to a word.  Preindexed word searches support three
+boolean expression operators: <b>and</b>, <b>or</b>, <b>andnot</b>.
+Substring searches and exhaustive searches only support the <b>or</b>
+operator.  Regular expressions do not support boolean expressions, but
+you can use the regular expression alternative operator, <code> | </code>,
+to simultaneously search for multiple regular expressions.
+
+<a name="Word Search"> <h2> Word Search </h2> </a>
+
+A word search only looks for exact matches of a word.  If multiple words
+are entered, separated by whitespace, they are treated as though they're
+all operands of boolean <b>and</b>.  In other words, only results containing
+all of the words are returned.  This only applies to preindexed searches.
+Exhaustive searches look for results containing any one of the words, a
+boolean <b>or</b>, although there is one exceptio.  When you perform an
+exhaustive word or substring search you may enter a phrase in quotes to
+find that exact phrase somewhere in the text.  This is not possible in
+the preindexed search because only individual words are indexed and not
+entire phrases.
+
+<a name="Boolean Expressions"> <h3> Boolean Expressions </h3> </a>
+
+When performing a preindexed word searches, you can use boolean expressions
+to augment your search.  The following operators are supported:<p>
+
+<dl compact>
+<dt> <b>and</b>    <dd> look for results containing all terms
+<dt> <b>or</b>     <dd> look for results containing at least one of the terms
+<dt> <b>andnot</b> <dd> omit results containing these terms
+</dl>
+
+For example, if you wanted to find all results containing <b>objects</b>
+and <b>distributed</b>, but not <b>programming</b>, you would enter:
+<center>
+<code> objects and distributed andnot programming </code>
+</center>	
+<p>
+
+<a name="Substrings"> <h2> Substrings </h2> </a>
+
+A substring search tries to find a search term within part of a word.
+So <b>obj</b> would match <b>objects</b>, <b>objective</b>, and
+<b>objects</b>.  If you enter multiple substrings, words containing
+any one of the substrings are matched.  So a search for: <b>obj ing</b>
+would match  <b>objects</b>, <b>objective</b>, and <b>objects</b>, but
+also <b>programming</b>, <b>typing</b>, etc.
+<p>
+
+<a name="Regular Expressions"><h2> Regular Expressions </h2> </a>
+
+A regular expression search tries to match a regular expression exactly
+to a word.  There are may different regular expression syntaxes, but
+today the Larry Wall's, Perl 4 regular expression syntax is the most
+common on the Internet, and therefore the syntax supported.  Perl 4
+regular expressions are close cousins to egrep extended regular expressions
+with a few differences.
+<p>
+
+The following Perl 4 regular expression features are supported:
+ <ul>
+ <li> Alternatives separated by |
+ <li> Quantified atoms
+ <dl compact>
+      <dt> {n,m} <dd> Match at least n but not more than m times.
+	<dt> {n,}  <dd> Match at least n times.
+      <dt> {n}   <dd> Match exactly n times.  
+      <dt> *     <dd> Match 0 or more times.
+      <dt> +     <dd> Match 1 or more times.
+      <dt> ?     <dd> Match 0 or 1 times.
+ </dl>
+ <li> Atoms
+ <ul>
+     <li> regular expression within parentheses
+    <li> a . matches everything except \n
+     <li> a ^ is a null token matching the beginning of a string or line
+          (i.e., the position right after a newline or right before
+           the beginning of a string)
+     <li> a $ is a null token matching the end of a string or line
+          (i.e., the position right before a newline or right after
+           the end of a string)
+     <li> Character classes (e.g., [abcd]) and ranges (e.g. [a-z])
+     <ul>
+         <li> Special backslashed characters work within a character
+              class (except for backreferences and boundaries).  
+         <li> \b is backspace inside a character class
+     </ul>
+     <li> Special backslashed characters
+     <dl compact>
+         <dt> \b <dd> null token matching a word boundary (\w on one side
+                      and \W on the other)
+         <dt> \B <dd> null token matching a boundary that isn't a
+                      word boundary
+         <dt> \n <dd> newline
+         <dt> \r <dd> carriage return
+         <dt> \t <dd> tab
+         <dt> \f <dd> formfeed
+         <dt> \d <dd> digit [0-9]
+         <dt> \D <dd> non-digit [^0-9]
+         <dt> \w <dd> word character [0-9a-z_A-Z]
+         <dt> \W <dd> a non-word character [^0-9a-z_A-Z]
+         <dt> \s <dd> a whitespace character [ \t\n\r\f]
+         <dt> \S <dd> a non-whitespace character [^ \t\n\r\f]
+         <dt> \xnn <dd> hexadecimal representation of character
+         <dt> \cD <dd> matches the corresponding control character
+         <dt> \nn or \nnn <dd> octal representation of character
+         <dt> \0 <dd> matches null character
+         <dt> Any other backslashed character matches itself
+     </dl>
+ </ul></ul><p>
+
+<a name="Search Results"> <h1> Search Results </h1> </a>
+
+After you enter your search query and press enter or click the <b>Search</b>
+button, a list of results appear.  The results are displayed as section
+headings by default.  A section is either the title of the HTML page, or
+the title of the page, followed by the section title of the part of
+the page satisfying the search query.
+<p>
+
+You can choose to display your results as sections, URLs, or both from
+the choice menu at the bottom left.  Looking at the URLs is useful when
+you want to know exactly what file a result is in.<p>
+
+Clicking the <b>Show</b> button or double clicking on a list entry will
+display the parts of the HTML pages containing your results in your Web
+ browser.  If the files are not installed properly, you will get
+an error message.
+
+<hr>
+</body>
+</html>

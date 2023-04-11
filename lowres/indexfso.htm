@@ -1,0 +1,89 @@
+
+<HTML>
+
+<HEAD>
+
+<TITLE>Index</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+if(navigator.appName == "Netscape") {
+        self.name = "_mainDisplayFrame";
+        self._mainDisplayFrame = self;
+}
+function load(chapnum,anchor)
+{
+
+	// title frame (top.frames[0]) location does not change...
+
+        //top.LEFT.location="left" + chapnum + ".htm";
+        frames[0].location="left"+chapnum+".htm";
+
+	//top.BANNER.location = "banner" + chapnum + ".htm";
+        frames[1].location="banner"+chapnum+".htm";
+
+	//top.TEXT.location=anchor;
+        //frames[2].location=anchor;
+
+	// bottom frame (top.frames[4]) location does not change...
+	frames[3].location = "bot"+chapnum+".htm";
+
+}
+
+</SCRIPT>
+
+</HEAD>
+
+	<FRAMESET
+		FRAMEBORDER	= NO
+		BORDER		= 0
+		MARGINWIDTH	= 1
+		MARGINHEIGHT	= 1
+		FRAMESPACING	= NO
+		COLS		= "105,*"
+	>
+
+		<FRAME	SRC		= "leftidx.htm"
+			MARGINWIDTH	= 1
+			MARGINHEIGHT	= 1
+			SCROLLING	= NO
+			NAME = "LEFT"
+			
+		>
+
+		<FRAMESET
+			FRAMEBORDER	= NO
+			BORDER		= 0
+			MARGINWIDTH	= 1
+			MARGINHEIGHT	= 1
+			FRAMESPACING	= NO
+			ROWS		= "65,*,48"
+		>
+
+			<FRAME
+				SRC		= "banidx.htm"
+				MARGINWIDTH	= 1
+				MARGINHEIGHT	= 1
+				SCROLLING	= NO
+				NAME		= "BANNER"
+			>
+
+			<FRAME	SRC		= "index-A.htm"
+				NAME		= "TEXT"
+			>
+
+			<FRAME	SRC		= "bottom.htm"
+				MARGINWIDTH	= 1
+				MARGINHEIGHT	= 1
+				SCROLLING	= NO
+				NAME		= "BOTTOM"
+			>
+
+		</FRAMESET>
+	
+	</FRAMESET>
+
+</FRAMESET>
+
+</HTML>

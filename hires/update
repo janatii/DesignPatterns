@@ -1,0 +1,1 @@
+cp {pat[3-5][a-z],chap{1,2,6},chap{3,4,5,A,B,C}-0,bib-0,index-[A-Z],foreword,contents,related,faq}.htm ../lowres

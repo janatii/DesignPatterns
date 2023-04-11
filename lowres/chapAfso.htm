@@ -1,0 +1,79 @@
+
+<HTML>
+
+<HEAD>
+
+<TITLE>Glossary</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+if(navigator.appName == "Netscape") {
+        self.name = "_mainDisplayFrame";
+        self._mainDisplayFrame = self";
+}
+function load(chapnum, anchor)
+{
+        top.LEFT.location = "left" + chapnum + ".htm";
+	// top.BOTTOM.location = "bottom" + chapnum + ".htm";
+	top.BOTTOM.location = "bottom.htm";
+	top.BANNER.location = "banner" + chapnum + ".htm";
+	top.TEXT.location = anchor;
+}
+
+</SCRIPT>
+
+</HEAD>
+
+	<FRAMESET
+		FRAMEBORDER	= NO
+		BORDER		= 0
+		MARGINWIDTH	= 1
+		MARGINHEIGHT	= 1
+		FRAMESPACING	= NO
+		COLS		= "105,*"
+	>
+
+		<FRAME	SRC		= "leftA.htm"
+			MARGINWIDTH	= 1
+			MARGINHEIGHT	= 1
+			SCROLLING	= NO
+			NAME = "LEFT"
+			
+		>
+
+		<FRAMESET
+			FRAMEBORDER	= NO
+			BORDER		= 0
+			MARGINWIDTH	= 1
+			MARGINHEIGHT	= 1
+			FRAMESPACING	= NO
+			ROWS		= "65,*,48"
+		>
+
+			<FRAME
+				SRC		= "bannerA.htm"
+				MARGINWIDTH	= 1
+				MARGINHEIGHT	= 1
+				SCROLLING	= NO
+				NAME		= "BANNER"
+			>
+
+			<FRAME	SRC		= "chapA-0.htm"
+				NAME		= "TEXT"
+			>
+
+			<FRAME	SRC		= "botA.htm"
+				MARGINWIDTH	= 1
+				MARGINHEIGHT	= 1
+				SCROLLING	= NO
+				NAME		= "BOTTOM"
+			>
+
+		</FRAMESET>
+	
+	</FRAMESET>
+
+</FRAMESET>
+
+</HTML>

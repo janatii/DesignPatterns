@@ -1,0 +1,62 @@
+<HTML>
+<SCRIPT LANGUAGE="JavaScript">
+function loadApplet() {
+
+	if(navigator.appName == "Netscape") {
+		if(top._appletWindow == null ||
+		   top._appletWindow.closed) {
+			top._appletWindow =
+	 window.open("appletn.htm", "_appletWindow", "width=440,height=350,resizable=0,status=0,menubar=0,scrollbar=0");
+		}
+
+	} else if(top.loadApplet != null) {
+		top.loadApplet();
+	}
+
+}
+</SCRIPT>
+
+<BODY	BGCOLOR		= #336699
+	LEFTMARGIN	= 1
+	TOPMARGIN	= 1
+>
+
+<TABLE
+	WIDTH		= 100%
+	CELLPADDING	= 0
+	CELLSPACING	= 0
+	BORDER		= 0
+>
+
+
+<tr>
+<td colspan=2 align=center><A HREF="javascript:loadApplet()" TARGET="LEFT"><IMG SRC="gifsb/search.gif" BORDER=0></A></td>
+</tr>
+
+<tr>
+<td><img src="gifsb/clear.gif" width=1 height=20></td>
+<td><img src="gifsb/clear.gif" width=5 height=1></td>
+</tr>
+
+<tr>
+<td align=right><img src="gifsb/left2.gif" border=0 ismap usemap="#left"></td>
+</tr>
+
+</TABLE>
+
+</BODY>
+
+<map name="left">
+<area shape="rect" coords="0,1,90,14" href="chap2.htm#sec2-1" target="TEXT">
+<area shape="rect" coords="0,29,90,55" href="chap2.htm#sec2-2" target="TEXT">
+<area shape="rect" coords="0,70,90,85" href="chap2.htm#sec2-3" target="TEXT">
+<area shape="rect" coords="0,98,90,125" href="chap2.htm#sec2-4" target="TEXT">
+<area shape="rect" coords="1,142,90,195" href="chap2.htm#sec2-5" target="TEXT">
+<area shape="rect" coords="0,210,90,251" href="chap2.htm#sec2-6" target="TEXT">
+<area shape="rect" coords="0,267,90,280" href="chap2.htm#sec2-7" target="TEXT">
+<area shape="rect" coords="0,294,90,338" href="chap2.htm#sec2-8" target="TEXT">
+<area shape="default" nohref>
+</map>
+
+</HTML>
+

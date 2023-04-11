@@ -1,0 +1,1 @@
+#!/usr/ucb/perl$file=join('',<>);$file=~s/this(.name = "_mainDisplayFrame";)/self$1/g ;$file=~s/this(._mainDisplayFrame = self;)/self$1/g ;print $file;

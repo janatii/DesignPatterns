@@ -1,0 +1,69 @@
+<HTML>
+<SCRIPT LANGUAGE="JavaScript">
+function loadApplet() {
+
+	if(navigator.appName == "Netscape") {
+		if(top._appletWindow == null ||
+		   top._appletWindow.closed) {
+			top._appletWindow =
+	 window.open("appletn.htm", "_appletWindow", "width=440,height=350,resizable=0,status=0,menubar=0,scrollbar=0");
+		}
+
+	} else if(top.loadApplet != null) {
+		top.loadApplet();
+	}
+
+}
+</SCRIPT>
+
+<BODY	BGCOLOR		= #336699
+	LEFTMARGIN	= 1
+	TOPMARGIN	= 1
+>
+
+<TABLE
+	WIDTH		= 100%
+	CELLPADDING	= 0
+	CELLSPACING	= 0
+	BORDER		= 0
+>
+
+
+<tr>
+<td colspan=2 align=center><A HREF="javascript:loadApplet()" TARGET="LEFT"><IMG SRC="gifsb/search.gif" BORDER=0></A></td>
+</tr>
+
+<tr>
+<td><img src="gifsb/clear.gif" width=1 height=20></td>
+<td><img src="gifsb/clear.gif" width=10 height=1></td>
+</tr>
+
+<tr>
+<td align=right><img src="gifsb/left1.gif" border=0 ismap usemap="#left"></td>
+
+</TABLE>
+
+</BODY>
+
+<MAP NAME="left">
+<!-- What is a Design Pattern? -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-1" TARGET="TEXT" COORDS="13,1,98,23">
+<!-- Design Patterns in Smalltalk MVC-->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-2" TARGET="TEXT" COORDS="4,32,99,59">
+<!-- Describing Design Patterns -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-3" TARGET="TEXT" COORDS="8,69,98,92">
+<!-- The Catalog of Design Patterns -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-4" TARGET="TEXT" COORDS="14,106,97,131">
+<!-- Organizing the Catalog -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-5" TARGET="TEXT" COORDS="26,142,98,169">
+<!-- How Design Patterns Solve Design Problems -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-6" TARGET="TEXT" COORDS="10,178,97,213">
+<!-- How to Select a Design Pattern -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-7" TARGET="TEXT" COORDS="11,223,99,250">
+<!-- How to Use a Design Pattern -->
+<AREA SHAPE="rect" HREF="chap1.htm#sec1-8" TARGET="TEXT" COORDS="10,258,98,284">
+</MAP>
+
+
+</HTML>
+

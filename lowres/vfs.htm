@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<SCRIPT>
+/*
+	this script parses the search portion of the URL
+	and builds a frameset based on parameters it finds
+	there
+*/
+var ss=parent.location.search ;
+var ss=ss.substring(1) ;
+var dstart=ss.lastIndexOf("doc=");
+var fstart=ss.lastIndexOf("fid=");
+var hstart=ss.lastIndexOf("hid=");
+var did=ss.substring(dstart+4,fstart-1) ;
+if ( hstart > -1 ) {
+	var fid=ss.substring(fstart+4,hstart-1) ;
+	var hash='#'+ss.substring(hstart+4) ;
+} else {
+	var fid=ss.substring(fstart+4) ;
+	var hash='' ;
+}
+var left='left'+fid+'.htm';
+var banner='banner'+fid+'.htm';
+var bot='bot'+fid+'.htm';
+
+document.write('<HTML><HEAD><TITLE>Design Patterns CD</TITLE></HEAD>')
+document.write('<FRAMESET FRAMEBORDER=NO BORDER=0 MARGINWIDTH=1 MARGINHEIGHT=1 FRAMESPACING=NO COLS="105,*">');
+document.write('<FRAME SRC="'+left+'" MARGINWIDTH=1 MARGINHEIGHT=1 SCROLLING=NO NAME="LEFT">');
+document.write('<FRAMESET FRAMEBORDER=NO BORDER=0 MARGINWIDTH=1 MARGINHEIGHT=1 FRAMESPACING=NO ROWS="65,*,48">');
+document.write('<FRAME SRC="'+banner+'" MARGINWIDTH=1 MARGINHEIGHT=1 SCROLLING=NO>');
+document.write('<FRAME SRC="'+did+hash+'" NAME="TEXT">');
+document.write('<FRAME SRC="'+bot+'" MARGINWIDTH=1 MARGINHEIGHT=1 NAME="BOTTOM" SCROLLING=NO>');
+document.write('</FRAMESET></FRAMESET></HTML>');
+
+</SCRIPT>
+</HEAD>
+</HTML>

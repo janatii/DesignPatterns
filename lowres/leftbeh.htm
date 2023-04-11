@@ -1,0 +1,58 @@
+<HTML>
+<SCRIPT LANGUAGE="JavaScript">
+function loadApplet() {
+
+	if(navigator.appName == "Netscape") {
+		if(top._appletWindow == null ||
+		   top._appletWindow.closed) {
+			top._appletWindow =
+	 window.open("appletn.htm", "_appletWindow", "width=440,height=350,resizable=0,status=0,menubar=0,scrollbar=0");
+		}
+
+	} else if(top.loadApplet != null) {
+		top.loadApplet();
+	}
+
+}
+</SCRIPT>
+
+<BODY	BGCOLOR		= #336699
+	LEFTMARGIN	= 1
+	TOPMARGIN	= 1
+>
+
+<TABLE
+	WIDTH		= 100%
+	CELLPADDING	= 0
+	CELLSPACING	= 0
+	BORDER		= 0
+>
+
+
+<tr>
+<td colspan=2 align=center><A HREF="javascript:loadApplet()" TARGET="LEFT"><IMG SRC="gifsb/search.gif" BORDER=0></A></td>
+</tr>
+
+<tr>
+<td><img src="gifsb/clear.gif" width=1 height=20></td>
+<td><img src="gifsb/clear.gif" width=5 height=1></td>
+</tr>
+
+<tr>
+<td align=right><img src="gifsb/leftbeh.gif" border=0 ismap usemap="#left"></td>
+
+</TABLE>
+
+</BODY>
+
+<map name="left">
+<area shape="rect" coords="0,0,99,27" href="disc5.htm#encap" target="TEXT">
+<area shape="rect" coords="0,38,99,68" href="disc5.htm#objects" target="TEXT">
+<area shape="rect" coords="0,81,99,140" href="disc5.htm#media-vs-obsrv" target="TEXT">
+<area shape="rect" coords="0,149,99,194" href="disc5.htm#decouple-sandr" target="TEXT">
+<area shape="rect" coords="0,207,99,224" href="disc5.htm#summary" target="TEXT">
+<area shape="default" nohref target="TEXT">
+</map>
+
+</HTML>
+

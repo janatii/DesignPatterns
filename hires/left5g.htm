@@ -1,0 +1,69 @@
+<HTML>
+<SCRIPT LANGUAGE="JavaScript">
+function loadApplet() {
+
+	if(navigator.appName == "Netscape") {
+		if(top._appletWindow == null ||
+		   top._appletWindow.closed) {
+			top._appletWindow =
+	 window.open("appletn.htm", "_appletWindow", "width=440,height=350,resizable=0,status=0,menubar=0,scrollbar=0");
+		}
+
+	} else if(top.loadApplet != null) {
+		top.loadApplet();
+	}
+
+}
+</SCRIPT>
+
+<BODY	BGCOLOR		= #336699
+	LEFTMARGIN	= 1
+	TOPMARGIN	= 1
+>
+
+<TABLE
+	WIDTH		= 100%
+	CELLPADDING	= 0
+	CELLSPACING	= 0
+	BORDER		= 0
+>
+
+
+<tr>
+<td colspan=2 align=right><A HREF="javascript:loadApplet()" TARGET="LEFT"><IMG SRC="gifsb/search.gif" BORDER=0></A></td>
+</tr>
+
+<tr>
+<td><img src="gifsb/clear.gif" width=1 height=20></td>
+<td><img src="gifsb/clear.gif" width=10 height=1></td>
+</tr>
+
+<tr>
+<td align=right
+><img	src="gifsb/patlefta.gif"
+	border=0
+	ismap
+	usemap="#patlefta"
+></td>
+<td></td>
+</tr>
+
+<map name="patlefta">
+<area shape="rect" coords="0,0,92,14" href="pat5g.htm#intent" target="TEXT">
+<area shape="rect" coords="0,31,94,45" href="pat5g.htm#alsoknownas" target="TEXT">
+<area shape="rect" coords="0,64,90,77" href="pat5g.htm#motivation" target="TEXT">
+<area shape="rect" coords="1,95,91,110" href="pat5g.htm#applicability" target="TEXT">
+<area shape="rect" coords="0,127,91,142" href="pat5g.htm#structure" target="TEXT">
+<area shape="rect" coords="0,161,91,174" href="pat5g.htm#participants" target="TEXT">
+<area shape="rect" coords="0,192,90,206" href="pat5g.htm#collaborations" target="TEXT">
+<area shape="rect" coords="0,225,91,238" href="pat5g.htm#consequences" target="TEXT">
+<area shape="rect" coords="1,255,90,270" href="pat5g.htm#implementation" target="TEXT">
+<area shape="rect" coords="0,287,90,302" href="pat5g.htm#samplecode" target="TEXT">
+<area shape="rect" coords="1,319,90,333" href="pat5g.htm#knownuses" target="TEXT">
+<area shape="default" nohref>
+</map>
+
+</TABLE>
+
+</HTML>
+

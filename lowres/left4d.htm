@@ -1,0 +1,81 @@
+<HTML>
+<SCRIPT LANGUAGE="JavaScript">
+function loadApplet() {
+
+	if(navigator.appName == "Netscape") {
+		if(top._appletWindow == null ||
+		   top._appletWindow.closed) {
+			top._appletWindow =
+	 window.open("appletn.htm", "_appletWindow", "width=440,height=350,resizable=0,status=0,menubar=0,scrollbar=0");
+		}
+
+	} else if(top.loadApplet != null) {
+		top.loadApplet();
+	}
+
+}
+</SCRIPT>
+
+<BODY	BGCOLOR		= #336699
+	LEFTMARGIN	= 1
+	TOPMARGIN	= 1
+>
+
+<TABLE
+	WIDTH		= 100%
+	CELLPADDING	= 0
+	CELLSPACING	= 0
+	BORDER		= 0
+>
+
+
+<tr>
+<td colspan=2 align=right><A HREF="javascript:loadApplet()" TARGET="LEFT"><IMG SRC="gifsb/search.gif" BORDER=0></A></td>
+</tr>
+
+<tr>
+<td><img src="gifsb/clear.gif" width=1 height=20></td>
+<td><img src="gifsb/clear.gif" width=10 height=1></td>
+</tr>
+
+<tr>
+<td align=right
+><img	src="gifsb/patlefta.gif"
+	border=0
+	ismap
+	usemap="#patlefta"
+></td>
+<td></td>
+</tr>
+
+<MAP NAME="patlefta">
+<!-- intent -->
+<AREA SHAPE="rect" HREF="pat4d.htm#intent" TARGET="TEXT" COORDS="53,0,85,10">
+<!-- alsoknownas -->
+<AREA SHAPE="rect" HREF="pat4d.htm#alsoknownas" TARGET="TEXT" COORDS="7,14,85,28">
+<!-- motivation -->
+<AREA SHAPE="rect" HREF="pat4d.htm#motivation" TARGET="TEXT" COORDS="34,31,85,46">
+<!-- applicability -->
+<AREA SHAPE="rect" HREF="pat4d.htm#applicability" TARGET="TEXT" COORDS="24,50,85,66">
+<!-- structure -->
+<AREA SHAPE="rect" HREF="pat4d.htm#structure" TARGET="TEXT" COORDS="37,73,85,86">
+<!-- participants -->
+<AREA SHAPE="rect" HREF="pat4d.htm#participants" TARGET="TEXT" COORDS="25,90,85,106">
+<!-- collaborations -->
+<AREA SHAPE="rect" HREF="pat4d.htm#collaborations" TARGET="TEXT" COORDS="11,112,85,125">
+<!-- consequences -->
+<AREA SHAPE="rect" HREF="pat4d.htm#consequences" TARGET="TEXT" COORDS="9,131,85,147">
+<!-- implementation -->
+<AREA SHAPE="rect" HREF="pat4d.htm#implementation" TARGET="TEXT" COORDS="10,151,85,167">
+<!-- sample code -->
+<AREA SHAPE="rect" HREF="pat4d.htm#samplecode" TARGET="TEXT" COORDS="18,173,85,188">
+<!-- known uses-->
+<AREA SHAPE="rect" HREF="pat4d.htm#knownuses" TARGET="TEXT" COORDS="21,193,85,206">
+<!-- related patterns -->
+<AREA SHAPE="rect" HREF="pat4d.htm#relatedpatterns" TARGET="TEXT" COORDS="2,211,85,225">
+</MAP>
+
+</TABLE>
+
+</HTML>
+

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0 Demo">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<TITLE>untitled</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P>Next: How to Use A Design Pattern &#160;|&#160; Previous: Frameworks <!--top level table containing the page, first colum has invisible gif to create the left margin-->
+
+<TABLE BORDER="0" WIDTH="600">
+	<TR>
+		<TD COLSPAN="2"><IMG SRC="gifsb/bluepat1.gif" WIDTH="600" HEIGHT="87" ALIGN="BOTTOM" BORDER="0"></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="96"><IMG SRC="gifsb/indent.gif" WIDTH="96" HEIGHT="1" ALIGN="BOTTOM" BORDER="0" VALIGN="top"
+			</TD></TD>
+		<TD WIDTH="500">
+			<H2><A NAME="paragraphs"></A>How to Select a Design Pattern</H2>
+			<P>With more than twenty design patterns in the catalog to choose from, it might
+			be hard to find the one that addresses a particular design problem, especially if
+			the catalog is new and unfamiliar to you. Here are several different approaches to
+			finding the design pattern that's right for your problem:</P>
+			<P>Consider how design patterns solve design problems. Section 1.6 discusses how
+			design patterns help you find appropriate objects, determine object granularity,
+			specify object interfaces, and several other ways in which design patterns solve
+			design problems. Referring to these discussions can help guide your search for the
+			right pattern.</P>
+			<P>Scan Intent sections. Section 1.4 lists the Intent sections from all the patterns
+			in the catalog. Read through each pattern's intent to find one or more that sound
+			relevant to your problem. You can use the classification scheme presented in Table
+			1.1 to narrow your search.</P>
+			<P>Study how patterns interrelate. Figure 1.1 shows relationships between design
+			patterns graphically. Studying these relationships can help direct you to right pattern
+			or group of patterns.</P>
+			<P>Study patterns of like purpose. The catalog has three chapters, one for creational
+			patterns, another for structural patterns, and a third for behavioral patterns. Each
+			chapter starts off with introductory comments on the patterns and concludes with
+			a section that compares and contrasts them. These sections give you insight into
+			the similarities and differences between patterns of like purpose.</P>
+			<P>Examine a cause of redesign. Look at the causes of redesign starting to see if
+			your problem involves one or more of them. Then look at the patterns that help you
+			avoid the causes of redesign.</P>
+			<P>Consider what should be variable in your design. This approach is the opposite
+			of focusing on the causes of redesign. Instead of considering what might force a
+			change to a design, consider what you want to be able to change without redesign.
+			The focus here is on encapsulating the concept that varies, a theme of many design
+			patterns. Table 1.2 (below) lists the design aspect(s) that design patterns let you
+			vary independently, thereby letting you change them without redesign. <!--table 1.2 sample table within top level table markup--></P>
+
+			<P><A NAME="table"></A>
+			<TABLE BORDER="0" CELLPADDING="4" CELLSPACING="0" WIDTH="500" BGCOLOR="#99CCFF">
+				<CAPTION>Table 1.2: Design aspects that design patterns let you vary</CAPTION>
+				<TR>
+					<TD BGCOLOR="#6699CC"><B>Purpose</B></TD>
+					<TD BGCOLOR="#6699CC"><B>Design Pattern</B></TD>
+					<TD BGCOLOR="#6699CC"><B>Aspect(s) That Can Vary</B></TD>
+				</TR>
+				<TR>
+					<TD VALIGN="TOP"><B>Creational&#160;</B></TD>
+					<TD VALIGN="TOP">Abstract Factory<BR>
+						Builder<BR>
+						Factory Method<BR>
+						Prototype<BR>
+						Singleton</TD>
+					<TD VALIGN="TOP">families of product objects<BR>
+						how a composite object gets created<BR>
+						subclass of object that is instantiated<BR>
+						class of object that is instantiated<BR>
+						the sole instance of a class</TD>
+				</TR>
+				<TR>
+					<TD VALIGN="TOP" COLSPAN="3">
+<HR>
+					</TD>
+				</TR>
+				<TR>
+					<TD VALIGN="TOP"><B>Structural</B></TD>
+					<TD VALIGN="TOP">Adapter<BR>
+						Bridge<BR>
+						Composite<BR>
+						Decorator<BR>
+						Facade<BR>
+						Flyweight<BR>
+						Proxy</TD>
+					<TD VALIGN="TOP">interface to an object<BR>
+						implementation of an object<BR>
+						structure and composition of an object<BR>
+						responsibilities of an object without subclassing<BR>
+						interface to a subsystem<BR>
+						storage costs of objects<BR>
+						how an object is accesed; its location</TD>
+				</TR>
+				<TR>
+					<TD VALIGN="TOP" COLSPAN="3">
+<HR>
+					</TD>
+				</TR>
+				<TR>
+					<TD VALIGN="TOP"><B>Behavioral&#160;</B></TD>
+					<TD VALIGN="TOP">Chain of Responsibility<BR>
+						Command<BR>
+						Interpreter<BR>
+						Iterator<BR>
+						Mediator<BR>
+						Memento<BR>
+						Observer<BR>
+						State<BR>
+						Strategy<BR>
+						Template Method<BR>
+						Visitor</TD>
+					<TD VALIGN="TOP">object that can fulfill a request<BR>
+						when and how a request is fulfilled<BR>
+						grammar and interpretation of a language<BR>
+						how an aggregate's elements are accessed, traversed<BR>
+						how and which objects interact with each other<BR>
+						what private information is stored outside an object,<BR>
+						and when<BR>
+						number of objects that depend on another object; how<BR>
+						the dependent objects stay up to date<BR>
+						states of an object<BR>
+						an algorithm<BR>
+						steps of an algorithm<BR>
+						operations that can be applied to object(s) without<BR>
+						changing their class(es)</TD>
+				</TR>
+			</TABLE>
+<!--end table 1.2--> <BR>
+			<BR>
+			Next: How to Use A Design Pattern &#160;|&#160; Previous: Frameworks
+		</TD>
+	</TR>
+</TABLE>
+<!--end top level table containing the page-->
+
+
+</BODY>
+
+</HTML>

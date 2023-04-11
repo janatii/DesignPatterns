@@ -1,0 +1,327 @@
+<HTML>
+
+<BODY	BGCOLOR	= #FFFFFF>
+
+<H1>Foundation Classes</H1>
+
+<A NAME="chapter_foundation"></A>
+
+<P>This appendix documents the foundation classes we use in the C++
+sample code of several design patterns. We've intentionally kept the
+classes simple and minimal.  We describe the following classes:</P>
+
+<UL>
+
+<LI><CODE>List</CODE>, an ordered list of objects.</LI>
+
+<LI><CODE>Iterator</CODE>,
+the interface for accessing an aggregate's objects in a sequence.</LI>
+
+<LI><CODE>ListIterator</CODE>,
+an iterator for traversing a <CODE>List</CODE>.</LI>
+
+<LI><CODE>Point</CODE>, a two-dimensional point.</LI>
+
+<LI><CODE>Rect</CODE>, an axis-aligned rectangle.</LI>
+
+</UL>
+
+<P>Some newer C++ standard types may not be available on all
+compilers.  In particular, if your compiler doesn't define
+<CODE>bool</CODE>, then define it manually as</P>
+
+<PRE>
+typedef int bool;
+const int true = 1;
+const int false = 0;
+</PRE>
+
+<H2>List</H2>
+
+<P>The <CODE>List</CODE> class template provides a basic container for
+storing an ordered list of objects. <CODE>List</CODE> stores elements by
+value, which means it works for built-in types as well as class
+instances. For example, <CODE>List<int></CODE> declares a list of
+<CODE>int</CODE>s. But most of the patterns use <CODE>List</CODE> to
+store pointers to objects, as in <CODE>List<Glyph*></CODE>.  That way
+<CODE>List</CODE> can be used for heterogeneous lists.</P>
+
+<P>For convenience, <CODE>List</CODE> also provides synonyms for stack
+operations, which make code that uses <CODE>List</CODE> for stacks more
+explicit without defining another class.</P>
+
+<PRE>
+template <class Item>
+class List {
+public:
+    List(long size = DEFAULT_LIST_CAPACITY);
+    List(List&amp;);
+    &nbsp;List();
+    List&amp; operator=(const List&amp;);
+
+    long Count() const;
+    Item&amp; Get(long index) const;
+    Item&amp; First() const;
+    Item&amp; Last() const;
+    bool Includes(const Item&amp;) const;
+
+    void Append(const Item&amp;);
+    void Prepend(const Item&amp;);
+
+    void Remove(const Item&amp;);
+    void RemoveLast();
+    void RemoveFirst();
+    void RemoveAll();
+
+    Item&amp; Top() const;
+    void Push(const Item&amp;);
+    Item&amp; Pop();
+};
+</PRE>
+
+<P>The following sections describe these operations in greater detail.</P>
+
+
+<H3>Construction, Destruction, Initialization, and Assignment</H3>
+
+<DL>
+
+<DT><CODE>List(long size)</CODE></DT>
+<DD>initializes the list.  The <CODE>size</CODE> parameter is a hint for
+the initial number of elements.</DD>
+
+<DT><CODE>List(List&amp;)</CODE></DT>
+<DD>overrides the default copy constructor so that member data are
+initialized properly.</DD>
+
+<DT><CODE>~List()</CODE></DT>
+<DD>frees the list's internal data structures but <EM>not</EM> the
+elements in the list.  The class is not designed for subclassing;
+therefore the destructor isn't virtual.</DD>
+
+<DT><CODE>List&amp; operator=(const List&amp;)</CODE></DT>
+<DD>implements the assignment operation to assign member data properly.</DD>
+
+</DL>
+
+<H3>Accessing</H3>
+
+<P>These operations provide basic access to the list's elements.
+
+<DL>
+
+<DT><CODE>long Count() const</CODE></DT>
+<DD>returns the number of objects in the list.</DD>
+
+<DT><CODE>Item&amp; Get(long index) const</CODE></DT>
+<DD>returns the object at the given index.</DD>
+
+<DT><CODE>Item&amp; First() const</CODE></DT>
+<DD>returns the first object in the list.</DD>
+
+<DT><CODE>Item&amp; Last() const</CODE></DT>
+<DD>returns the last object in the list.</DD>
+
+</DL>
+
+<H3>Adding</H3>
+
+<DL>
+
+<DT><CODE>void Append(const Item&amp;)</CODE></DT>
+<DD>adds the argument to the list, making it the last element.</DD>
+
+<DT><CODE>void Prepend(const Item&amp;)</CODE></DT>
+<DD>adds the argument to the list, making it the first element.</DD>
+
+</DL>
+
+
+<H3>Removing</H3>
+
+<DL>
+
+<DT><CODE>void Remove(const Item&amp;)</CODE></DT>
+<DD>removes the given element from the list. This operation requires
+that the type of elements in the list supports the
+<CODE>==</CODE> operator for comparison.</DD>
+
+<DT><CODE>void RemoveFirst()</CODE></DT>
+<DD>removes the first element from the list.</DD>
+
+<DT><CODE>void RemoveLast()</CODE></DT>
+<DD>removes the last element from the list.</DD>
+
+<DT><CODE>void RemoveAll()</CODE></DT>
+<DD>removes all elements from the list.</DD>
+
+</DL>
+
+
+<H3>Stack Interface</H3>
+
+<DL>
+
+<DT><CODE>Item&amp; Top() const</CODE></DT>
+<DD>returns the top element (when the List is viewed as a stack).</DD>
+
+<DT><CODE>void Push(const Item&amp;)</CODE></DT>
+<DD>pushes the element onto the stack.</DD>
+
+<DT><CODE>Item&amp; Pop()</CODE></DT>
+<DD>pops the top element from the stack.</DD>
+
+</DL>
+
+
+<H2>Iterator</H2>
+
+<P><CODE>Iterator</CODE> is an abstract class that defines a traversal
+interface for aggregates.</P>
+
+<PRE>
+template <class Item>
+class Iterator {
+public:
+    virtual void First() = 0;
+    virtual void Next() = 0;
+    virtual bool IsDone() const = 0;
+    virtual Item CurrentItem() const = 0;
+protected:
+    Iterator();
+};
+</PRE>
+
+<P>The operations do the following:</P>
+
+<DL>
+
+<DT><CODE>virtual void First()</CODE></DT>
+<DD>positions the iterator to the first object in the aggregate.</DD>
+
+<DT><CODE>virtual void Next()</CODE></DT>
+<DD>positions the iterator to the next object in the sequence.</DD>
+
+<DT><CODE>virtual bool IsDone() const</CODE></DT>
+<DD>returns <CODE>true</CODE> when there are no more objects in the sequence.</DD>
+
+<DT><CODE>virtual Item CurrentItem() const</CODE></DT>
+<DD>returns the object at the current position in the sequence.</DD>
+
+</DL>
+
+
+<H2>ListIterator</H2>
+
+<P><CODE>ListIterator</CODE> implements the <CODE>Iterator</CODE> interface
+to traverse List objects.  Its constructor takes a list to traverse as
+an argument.</P>
+
+<PRE>
+template <class Item>
+class ListIterator : public Iterator<Item> {
+public:
+    ListIterator(const List<Item>* aList);
+
+    virtual void First();
+    virtual void Next();
+    virtual bool IsDone() const;
+    virtual Item CurrentItem() const;
+};
+</PRE>
+
+<H2>Point</H2>
+
+<P><CODE>Point</CODE> represents a point in a two-dimensional Cartesian
+coordinate space.  <CODE>Point</CODE> supports some minimal vector arithmetic.
+The coordinates of a <CODE>Point</CODE> are defined as</P>
+
+<PRE>
+typedef float Coord;
+</PRE>
+
+<P><CODE>Point</CODE>'s operations are self-explanatory.</P>
+
+
+
+
+
+<PRE>
+class Point {
+public:
+    static const Point Zero;	
+
+    Point(Coord x = 0.0, Coord y = 0.0);
+
+    Coord X() const;  void X(Coord x);
+    Coord Y() const;  void Y(Coord y);
+
+    friend Point operator+(const Point&amp;, const Point&amp;);
+    friend Point operator-(const Point&amp;, const Point&amp;);
+    friend Point operator*(const Point&amp;, const Point&amp;);
+    friend Point operator/(const Point&amp;, const Point&amp;);
+
+    Point&amp; operator+=(const Point&amp;);
+    Point&amp; operator-=(const Point&amp;);
+    Point&amp; operator*=(const Point&amp;);
+    Point&amp; operator/=(const Point&amp;);
+
+    Point operator-();
+
+    friend bool operator==(const Point&amp;, const Point&amp;);
+    friend bool operator!=(const Point&amp;, const Point&amp;);
+
+    friend ostream&amp; operator<<(ostream&amp;, const Point&amp;);
+    friend istream&amp; operator>>(istream&amp;, Point&amp;);
+};
+</PRE>
+
+<P>The static member <CODE>Zero</CODE> represents <CODE>Point(0, 0)</CODE>.
+
+<H2>Rect</H2>
+
+<P><CODE>Rect</CODE> represents an axis-aligned rectangle. A
+<CODE>Rect</CODE> is defined by an origin point and an extent (that
+is, width and height).  The <CODE>Rect</CODE> operations are
+self-explanatory.</P>
+
+<PRE>
+class Rect {
+public:
+    static const Rect Zero;	
+
+    Rect(Coord x, Coord y, Coord w, Coord h);
+    Rect(const Point&amp; origin, const Point&amp; extent);
+
+    Coord Width() const;   void Width(Coord);
+    Coord Height() const;  void Height(Coord);
+    Coord Left() const;    void Left(Coord);
+    Coord Bottom() const;  void Bottom(Coord);
+
+    Point&amp; Origin() const; void Origin(const Point&amp;);
+    Point&amp; Extent() const; void Extent(const Point&amp;);
+
+    void MoveTo(const Point&amp;);
+    void MoveBy(const Point&amp;);
+
+    bool IsEmpty() const;
+    bool Contains(const Point&amp;) const;
+};
+</PRE>
+
+<P>The static member <CODE>Zero</CODE> is equivalent to the rectangle</P>
+
+
+
+
+<PRE>
+Rect(Point(0, 0), Point(0, 0));
+</PRE>
+
+
+
+
+</BODY>
+
+</HTML>
+
